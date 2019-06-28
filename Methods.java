@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
@@ -14,13 +13,14 @@ public class Methods {
 
         do {
             System.out.println("Podaj wynik kolejnego gracza (lub stop):");
-            String name = scanner.nextLine();
-            if (name.equals("stop")) {
+            String txt = scanner.nextLine();
+            String[] split = txt.split(" ");
+
+            if (txt.equals("stop")) {
                 break;
             }
-            String surname = scanner.nextLine();
-            int result = scanner.nextInt();
-            Player player = new Player(name, surname, result);
+
+            Player player = new Player(split[0], split[1], Integer.valueOf(split[2]));
             playerList.add(player);
 
 
